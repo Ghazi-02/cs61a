@@ -223,9 +223,7 @@ def sprout_leaves(t, leaves):
 def check_abstraction():
     """
     There's nothing for you to do for this function, it's just here for the extra doctest
-    >>> change_abstraction(True)
-    >>> scrat = tree('berry')
-    >>> berry_finder(scrat)
+    >>> changegit push --set-upstream origin main
     True
     >>> sproul = tree('roots', [tree('branch1', [tree('leaf'), tree('berry')]), tree('branch2')])
     >>> berry_finder(sproul)
