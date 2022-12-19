@@ -100,4 +100,19 @@ def repeated(t, k):
     2
     """
     assert k > 1
-  
+    count = 1
+    prevIter = None
+    
+    while True:
+        iter = next(t)
+        if iter == prevIter:
+            count += 1
+        else:
+            prevIter=iter
+            count = 1
+        if count == k:
+            return iter
+    
+
+
+            
