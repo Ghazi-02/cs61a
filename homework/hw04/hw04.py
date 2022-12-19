@@ -253,9 +253,20 @@ def has_path(t, word):
     False
     """
     assert len(word) > 0, 'no path for empty word.'
-    "*** YOUR CODE HERE ***"
+    
+    if label(t) != word[0]:
+        return False
+    elif len(word) == 1:
+        return True
+    else:
+        for b in branches(t):  
+            print("DEBUG:",b)
+            if has_path(b,word[1:]):
+                return True
+        return False
 
-
+        
+        
 def str_interval(x):
     """Return a string representation of interval x."""
     return '{0} to {1}'.format(lower_bound(x), upper_bound(x))
