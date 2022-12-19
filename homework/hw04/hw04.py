@@ -177,7 +177,11 @@ def totals_tree(m):
     >>> check(HW_SOURCE_FILE, 'totals_tree', ['Index'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if is_planet(m):
+        return label(mass(m))
+    else:
+        for element in branches(m):
+            print(element)
 
 
 def replace_loki_at_leaf(t, lokis_replacement):
@@ -209,7 +213,13 @@ def replace_loki_at_leaf(t, lokis_replacement):
     >>> laerad == yggdrasil # Make sure original tree is unmodified
     True
     """
-    "*** YOUR CODE HERE ***"
+
+    if label(t) == "loki" and is_leaf(t):
+        return [lokis_replacement]
+    else:
+        path = [replace_loki_at_leaf(b,lokis_replacement) for b in branches(t) ]
+            
+        return  [label(t)] + path
 
 
 def has_path(t, word):
