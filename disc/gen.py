@@ -102,3 +102,34 @@ def primes_gen_recur(n):
     if is_prime(n):
         yield n
     yield from primes_gen_recur(n-1)
+def preorder(t):
+    """Return a list of the entries in this tree in the order that they
+    would be visited by a preorder traversal (see problem description).
+
+    >>> numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
+    >>> preorder(numbers)
+    [1, 2, 3, 4, 5, 6, 7]
+    >>> preorder(tree(2, [tree(4, [tree(6)])]))
+    [2, 4, 6]
+    """
+    if not t:
+        return []
+    elif type(t[0]) == list:
+        return preorder(t[0]) + preorder(t[1:])
+    else:
+        return [t[0]] + preorder(t[1:])
+
+def generate_preorder(t):
+    """Yield the entries in this tree in the order that they
+    would be visited by a preorder traversal (see problem description).
+
+    >>> numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
+    >>> gen = generate_preorder(numbers)
+    >>> next(gen)
+    1
+    >>> list(gen)
+    [2, 3, 4, 5, 6, 7]
+    """
+    yield t[0]
+    for x in t[1:]:
+        yield from  generate_preorder(x)
