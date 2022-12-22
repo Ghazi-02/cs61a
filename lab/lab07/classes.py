@@ -1,4 +1,4 @@
-# Magic the Lambda-ing!
+ # Magic the Lambda-ing!
 
 import random
 
@@ -23,7 +23,10 @@ class Card:
         >>> other_staff.defense
         500
         """
-        "*** YOUR CODE HERE ***"
+        self.name = name
+        self.attack = attack
+        self.defense = defense
+        
 
     def power(self, opponent_card):
         """
@@ -41,7 +44,7 @@ class Card:
         >>> third_card.power(staff_member)
         -100
         """
-        "*** YOUR CODE HERE ***"
+        return self.attack - opponent_card.defense
 
     def effect(self, opponent_card, player, opponent):
         """
@@ -79,8 +82,8 @@ class Player:
         """
         self.deck = deck
         self.name = name
-        "*** YOUR CODE HERE ***"
-
+        self.hand = [self.deck.draw(),self.deck.draw(),self.deck.draw(),self.deck.draw(),self.deck.draw()]
+    
     def draw(self):
         """Draw a card from the player's deck and add it to their hand.
         >>> test_card = Card('test', 100, 100)
@@ -93,7 +96,7 @@ class Player:
         6
         """
         assert not self.deck.is_empty(), 'Deck is empty!'
-        "*** YOUR CODE HERE ***"
+        return self.hand + [self.deck.draw()]
 
     def play(self, index):
         """Remove and return a card from the player's hand at the given INDEX.
@@ -109,7 +112,7 @@ class Player:
         >>> len(test_player.hand)
         2
         """
-        "*** YOUR CODE HERE ***"
+        return self.hand[index]
 
     def display_hand(self):
         """
