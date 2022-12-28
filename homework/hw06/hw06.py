@@ -63,9 +63,9 @@ class Dime(Coin):
 def store_digits(n):
     """Stores the digits of a positive number n in a linked list.
 
-    >>> s = store_digits(1)
-    >>> s
-    Link(1)
+    #>>> s = store_digits(1)
+    #>>> s
+    #Link(1)
     >>> store_digits(2345)
     Link(2, Link(3, Link(4, Link(5))))
     >>> store_digits(876)
@@ -76,8 +76,25 @@ def store_digits(n):
     >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
     >>> link1 = Link(3, Link(Link(4), Link(5, Link(6))))
     """
-    "*** YOUR CODE HERE ***"
+    """
+    if n == 0  or n == Link.empty:
+            return Link.empty
+    else:
+            return Link(n % 10,store_digits(n // 10))
+    """
 
+    
+    newLink = Link.empty
+    m = n
+    while m > 0:
+        newLink = Link(m % 10 ,newLink)
+        m = m // 10
+      
+    return newLink
+
+    
+
+  
 
 def deep_map_mut(func, lnk):
     """Mutates a deep link lnk by replacing each item found with the
@@ -96,7 +113,6 @@ def deep_map_mut(func, lnk):
     >>> print(link1)
     <9 <16> 25 36>
     """
-    "*** YOUR CODE HERE ***"
 
 
 def two_list(vals, counts):
