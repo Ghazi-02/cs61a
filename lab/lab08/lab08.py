@@ -64,6 +64,20 @@ def cumulative_mul(t):
     >>> otherTree
     Tree(5040, [Tree(60, [Tree(3), Tree(4), Tree(5)]), Tree(42, [Tree(7)])])
     """
+    #label = label * branches[x].label *branches[x+1].label
+    #t.label === 1 ////
+    #t.branches[0] = Tree(3, [Tree(5)])
+    #t.branches[1] = Tree(7)
+    #t.branches[0].label === 3 ////
+    #t.branches[0].branches[0].label === 5
+    #t.branches[1].label ===  7
+   
+
+    for b in t.branches:
+            
+            cumulative_mul(b)
+            t.label = t.label * b.label
+            print("DEBUG:",b.label)
 
 
 
