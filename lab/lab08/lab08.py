@@ -40,8 +40,16 @@ def duplicate_link(link, val):
     >>> z
     Link(1, Link(2, Link(2, Link(2, Link(2, Link(3))))))
     """
-    "*** YOUR CODE HERE ***"
-
+    if link.rest is link.empty:
+        return None
+    elif link.first == val:
+        remaining = link.rest
+        link.rest = Link(val,link.rest)
+        duplicate_link(remaining,val)
+    else:
+        duplicate_link(link.rest,val)
+    
+            
 
 def cumulative_mul(t):
     """Mutates t so that each node's label becomes the product of all labels in
@@ -56,7 +64,7 @@ def cumulative_mul(t):
     >>> otherTree
     Tree(5040, [Tree(60, [Tree(3), Tree(4), Tree(5)]), Tree(42, [Tree(7)])])
     """
-    "*** YOUR CODE HERE ***"
+
 
 
 def every_other(s):
