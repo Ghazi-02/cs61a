@@ -143,7 +143,21 @@ def two_list(vals, counts):
     >>> c
     Link(1, Link(1, Link(3, Link(3, Link(2)))))
     """
-    "*** YOUR CODE HERE ***"
+
+    lst = []
+    result = Link(None)
+    lnk = result
+    for i in range(len(vals)):
+        item = vals[i]
+        for _ in range(counts[i]):
+            lst = lst + [item]
+    print("DEBUG:",lst)          
+    
+    for x in lst:
+        lnk.rest = Link(x)
+        lnk = lnk.rest
+    return result.rest
+    #return  Link(vals[0],Link(vals[1],Link(vals[2]))) 
 
 
 class VirFib():
