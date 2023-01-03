@@ -16,4 +16,16 @@
         ))
 (define (square n) (* n n))
 
-(define (pow base exp) 'YOUR-CODE-HERE)
+(define (pow base exp) 
+        (cond
+            ((= base 1)
+                1)
+            ((= exp 0) 
+                1)
+            (else
+                (* base (pow base (- exp 1)))
+            )
+    
+        )
+
+)
