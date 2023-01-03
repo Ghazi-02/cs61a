@@ -11,10 +11,12 @@
 
 (define (make-adder num) 
     (lambda (x)(+ x num))
-
 )
 
-(define (composed f g) 'YOUR-CODE-HERE)
+(define (composed f g)
+    (lambda (x)(f (g x)))   
+
+)
 
 (define lst 'YOUR-CODE-HERE)
 
