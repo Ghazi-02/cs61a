@@ -18,10 +18,10 @@
 
 (define (pow base exp) 
         (cond
-            ((= base 1)
+            ((= exp 0)
                 1)
-            ((= exp 0) 
-                1)
+            ((even? exp) 
+                (square(pow base (/ exp 2))))
             (else
                 (* base (pow base (- exp 1)))
             )
