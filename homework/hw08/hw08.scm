@@ -8,8 +8,16 @@
     
 )
 
-(define (interleave lst1 lst2) 'YOUR-CODE-HERE)
-
+(define (interleave lst1 lst2) 
+  (cond 
+    ( (or (null? lst2) (null? lst1)) (append lst1 lst2))
+     
+  
+    (else 
+          (cons (car lst1) (cons (car lst2) (interleave (cdr lst1) (cdr lst2))))
+    )
+  )
+)
 (define (accumulate joiner start n term)
   'YOUR-CODE-HERE)
 
