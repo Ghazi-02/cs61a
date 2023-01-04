@@ -26,4 +26,11 @@
   )
 )
 
-(define (no-repeats lst) 'YOUR-CODE-HERE)
+(define (no-repeats lst) 
+  (cond 
+      ((null? lst) lst)
+ 
+      (else (cons (car lst) (no-repeats (my-filter (lambda (x)(not(= x (car lst)))) (cdr lst)) )))
+  
+  )
+)
