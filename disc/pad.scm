@@ -69,3 +69,31 @@
 (- (+ 3 5) 1 7 9))
 (expect (swap '(* (+ 1 1) (- 2 1)))
 (* (+ 1 1) (- 2 1)))
+
+(define (make-or expr1 expr2)
+    `(let ((v1 ,expr1))
+                (if v1 v1 ,expr2)
+        )
+)
+
+(define or-program (make-or '(print 'bork) '(/ 1 0)))
+
+(expect (eval or-program)
+bork)
+(expect (eval (make-or '(= 1 0) '(+ 1 2)))
+3)
+
+(define (make-make-or)
+    `(define (make-or expr1 expr2)
+    `(let ((v1 ,expr1))
+                (if v1 v1 ,expr2)
+        )
+)
+
+)
+(make-make-or)
+(apply (eval (eval (make-make-or))) '(#t (/ 1 0)))
+
+(eval (apply (eval (eval (make-make-or))) '(#t (/ 1 0))))
+(eval (eval (make-make-or)))
+(eval (make-make-or))
