@@ -32,4 +32,4 @@
                              lst
                              if
                              filter-expr)
-  'YOUR-CODE-HERE)
+  `(map (lambda (,var),map-expr) (filter (lambda (,var) ,filter-expr) ,lst)))
