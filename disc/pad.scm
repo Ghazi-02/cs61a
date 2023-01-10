@@ -40,3 +40,32 @@
 (* (* 1 5) 5))
 (expect (eval expr2)
 25)
+
+(define (cddr s)
+  (cdr (cdr s))
+)
+
+(define (cadr s)
+  (car (cdr s))
+)
+
+(define (caddr s)
+  (car (cddr s))
+)
+
+(define (swap expr)
+    (let ((op (car expr))
+        (first (car (cdr expr)))
+        (second (caddr expr))
+        (rest (cdr (cddr expr))))
+        (cond
+            ((> (eval first) (eval second)) expr)
+            (else  (cons (car expr) (cons second  (cons first rest))) 
+            )
+        )
+    )
+)
+(expect (swap '(- 1 (+ 3 5) 7 9))
+(- (+ 3 5) 1 7 9))
+(expect (swap '(* (+ 1 1) (- 2 1)))
+(* (+ 1 1) (- 2 1)))
