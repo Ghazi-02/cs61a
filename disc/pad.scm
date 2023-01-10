@@ -1,0 +1,7 @@
+(define (if-program condition if-true if-false)
+    `(if ,condition ,if-true ,if-false )
+)
+(expect (if-program '(= 0 0) '2 '3) (if (= 0 0) 2 3))
+(expect (if-program '(= 1 0) '(print 3) '(print 5)) (if (= 1 0) (print 3) (print 5)))
+(expect (eval (if-program '(= 0 0) '2 '3)) 2)
+(expect (eval (if-program '(= 1 0) '(print 3) '(print 5))) 5)
