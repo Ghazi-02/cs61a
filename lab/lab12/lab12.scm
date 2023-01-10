@@ -8,13 +8,22 @@
          v1
          ,expr2)))
 
-(define (replicate x n) 'YOUR-CODE-HERE)
+(define (replicate x n) 
+  (if (= n 0) nil (cons x (replicate x  (- n 1))))
+)
 
-(define-macro (repeat-n expr n) 'YOUR-CODE-HERE)
+(define-macro (repeat-n expr n)  
+   (begin (replicate expr n) )
+)
+  
+  
 
-(define
- (list-of map-expr for var in lst if filter-expr)
- 'YOUR-CODE-HERE)
+
+(define (list-of map-expr for var in lst if filter-expr)
+       
+        `(map (lambda (,var),map-expr) (filter (lambda (,var) ,filter-expr) ,lst)))
+      
+
 
 (define-macro (list-of-macro map-expr
                              for
