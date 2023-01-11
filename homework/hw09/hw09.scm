@@ -6,8 +6,14 @@
   )
 )
 
+
+
 (define-macro (switch expr cases)
-  (cons _________
-        (map (_________ (_________)
-                        (cons _________ (cdr case)))
-             cases)))
+  (define (helper lst)
+    (cond 
+    ((eq? (eval expr) (car (car lst))) (car (cdr (car lst))))
+    (else (helper (cdr lst)))
+      )
+    )
+  (helper cases)
+  )
