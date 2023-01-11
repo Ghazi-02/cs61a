@@ -1,5 +1,10 @@
 (define-macro (when condition exprs)
-  'YOUR-CODE-HERE)
+  
+  (cond 
+  ((eval condition) (cons 'begin exprs))
+  (else (print 'okay))
+  )
+)
 
 (define-macro (switch expr cases)
   (cons _________
