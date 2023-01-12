@@ -28,7 +28,8 @@ CREATE TABLE average_prices AS
     FROM products AS p1 group by category;
 
 CREATE TABLE lowest_prices AS
-  SELECT "REPLACE THIS LINE WITH YOUR SOLUTION";
+  SELECT i.store as store ,i.item as item ,min(i.price) as lowest_prices
+    from inventory as i group by item;
 
 
 CREATE TABLE shopping_list AS
