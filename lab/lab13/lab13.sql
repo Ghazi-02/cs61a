@@ -30,10 +30,15 @@ CREATE TABLE average_prices AS
 CREATE TABLE lowest_prices AS
   SELECT i.store as store ,i.item as item ,min(i.price) as lowest_prices
     from inventory as i group by item;
-
+ 
+CREATE TABLE sl_helper AS
+ SELECT l.item as item, l.store as store , p.msrp / p.rating as value, p.category as category
+    from lowest_prices as l, products as p
+        where l.item =p.name;
 
 CREATE TABLE shopping_list AS
-  SELECT "REPLACE THIS LINE WITH YOUR SOLUTION";
+  SELECT sl.item as item, sl.store as store
+    from sl_helper as sl group by sl.category having min(value);
 
 
 CREATE TABLE total_bandwidth AS
