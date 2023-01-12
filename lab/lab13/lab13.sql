@@ -42,5 +42,7 @@ CREATE TABLE shopping_list AS
 
 
 CREATE TABLE total_bandwidth AS
-  SELECT "REPLACE THIS LINE WITH YOUR SOLUTION";
+  SELECT sum(s.Mbs) as total_bandwidth
+    from shopping_list as sl, stores as s 
+      where sl.store = s.store;
 
