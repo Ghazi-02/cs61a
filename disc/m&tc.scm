@@ -29,7 +29,7 @@
 (define (reverse lst)
   (define (helper lst result length )
     (cond
-       
+        
         ((= length 0) result) 
         (else (helper  (cdr lst) (cons (car lst) result) (- length 1)))
         )
