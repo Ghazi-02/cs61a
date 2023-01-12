@@ -19,12 +19,13 @@ CREATE TABLE matchmaker AS
 
 CREATE TABLE sevens AS
   SELECT s.seven
-    FROM students AS s, numbers AS n where s.number = 7 and n.'7' = "True" and s.time = n.time;
+    FROM students AS s, numbers AS n 
+      where s.number = 7 and n.'7' = "True" and s.time = n.time;
 
 
 CREATE TABLE average_prices AS
-  SELECT "REPLACE THIS LINE WITH YOUR SOLUTION";
-
+  SELECT p1.category as category, AVG(p1.msrp) as average_price 
+    FROM products AS p1 group by category;
 
 CREATE TABLE lowest_prices AS
   SELECT "REPLACE THIS LINE WITH YOUR SOLUTION";
