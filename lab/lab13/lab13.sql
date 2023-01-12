@@ -13,7 +13,8 @@ CREATE TABLE smallest_int_having AS
 
 
 CREATE TABLE matchmaker AS
-  SELECT "REPLACE THIS LINE WITH YOUR SOLUTION";
+  SELECT a.pet,a.song,a.color,b.color 
+    from students as a,students as b where a.pet = b.pet and a.song = b.song and a.time < b.time;
 
 
 CREATE TABLE sevens AS
