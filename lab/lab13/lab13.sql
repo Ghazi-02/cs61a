@@ -14,11 +14,12 @@ CREATE TABLE smallest_int_having AS
 
 CREATE TABLE matchmaker AS
   SELECT a.pet,a.song,a.color,b.color 
-    from students as a,students as b where a.pet = b.pet and a.song = b.song and a.time < b.time;
+    from students as a, students as b where a.pet = b.pet and a.song = b.song and a.time < b.time;
 
 
 CREATE TABLE sevens AS
-  SELECT "REPLACE THIS LINE WITH YOUR SOLUTION";
+  SELECT s.seven
+    FROM students AS s, numbers AS n where s.number = 7 and n.'7' = "True" and s.time = n.time;
 
 
 CREATE TABLE average_prices AS
